@@ -15,11 +15,16 @@ def opcion0(matriz,listCamiones):
     print("Adiós")
 
 def KgDescargados(matriz,listCamiones):
-    i = int(input('Ingrese el indentificador del camion del que quiere saber la cantidad de Kg descargados: '))
-    if i > 0 & i <= 20:
-        print(matriz.getKgDescargados(i-1))
+    i = (input('Ingrese el indentificador del camion del que quiere saber la cantidad de Kg descargados: '))
+    if (i.isdigit()):
+        i=int(i)
+        print(i)
+        if (i > 0) & (i <= 20):
+            print(matriz.getKgDescargados(i-1))
+        else:
+            print('No hay algún camion con ese identificador')
     else:
-        print('No hay algún camion con ese identificador')
+        print('El valor ingresado es inválido.')
 
 def mostrarFormato(matriz,listCamiones):
     j = int(input('Ingrese un día: '))
@@ -28,7 +33,7 @@ def mostrarFormato(matriz,listCamiones):
         for i in range(len(listCamiones)):
             print('{:9} {:9} {:<17.2f}'.format(listCamiones[i].getPatente(),listCamiones[i].getConductor(), matriz.getKgDia(i,j-1)))
     else:
-        print('No hay información acerca de ese día.')
+        print('No es un numero de día válido.')
 
 switcher = {
     0: opcion0,
